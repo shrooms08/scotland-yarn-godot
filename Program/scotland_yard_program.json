@@ -1,0 +1,558 @@
+{
+  "address": "CDCd6YhgMBQtKvaUvD2HB9hAGKxJeWMr9AvQmsjYsKok",
+  "metadata": {
+    "name": "scotland_yard_program",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "cancel_game",
+      "docs": [
+        "Cancel the game (only before it starts)"
+      ],
+      "discriminator": [
+        121,
+        194,
+        154,
+        118,
+        103,
+        235,
+        149,
+        52
+      ],
+      "accounts": [
+        {
+          "name": "game_state",
+          "writable": true
+        },
+        {
+          "name": "mr_x",
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "check_capture",
+      "docs": [
+        "Check if a detective captured Mr. X",
+        "Uses Inco Lightning to compare encrypted positions"
+      ],
+      "discriminator": [
+        145,
+        99,
+        177,
+        220,
+        227,
+        174,
+        164,
+        65
+      ],
+      "accounts": [
+        {
+          "name": "game_state",
+          "writable": true
+        },
+        {
+          "name": "detective",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "detective_index",
+          "type": "u8"
+        },
+        {
+          "name": "claimed_mr_x_position",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "create_game",
+      "docs": [
+        "Create a new game as Mr. X",
+        "Mr. X provides their encrypted starting position"
+      ],
+      "discriminator": [
+        124,
+        69,
+        75,
+        66,
+        184,
+        220,
+        72,
+        206
+      ],
+      "accounts": [
+        {
+          "name": "game_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  97,
+                  109,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mr_x"
+              },
+              {
+                "kind": "arg",
+                "path": "game_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mr_x",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "game_id",
+          "type": "u64"
+        },
+        {
+          "name": "encrypted_position",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "max_detectives",
+          "type": "u8"
+        },
+        {
+          "name": "rounds_between_reveals",
+          "type": "u8"
+        },
+        {
+          "name": "max_rounds",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "join_game",
+      "docs": [
+        "Detective joins the game with a starting position"
+      ],
+      "discriminator": [
+        107,
+        112,
+        18,
+        38,
+        56,
+        173,
+        60,
+        128
+      ],
+      "accounts": [
+        {
+          "name": "game_state",
+          "writable": true
+        },
+        {
+          "name": "detective",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "starting_position",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "move_detective",
+      "docs": [
+        "Detective moves to a new position (validated against graph)"
+      ],
+      "discriminator": [
+        52,
+        194,
+        142,
+        126,
+        100,
+        198,
+        75,
+        200
+      ],
+      "accounts": [
+        {
+          "name": "game_state",
+          "writable": true
+        },
+        {
+          "name": "detective",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "detective_index",
+          "type": "u8"
+        },
+        {
+          "name": "new_position",
+          "type": "u8"
+        },
+        {
+          "name": "transport",
+          "type": {
+            "defined": {
+              "name": "Transport"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "move_mr_x",
+      "docs": [
+        "Mr. X moves to a new encrypted position"
+      ],
+      "discriminator": [
+        139,
+        27,
+        65,
+        200,
+        193,
+        231,
+        30,
+        11
+      ],
+      "accounts": [
+        {
+          "name": "game_state",
+          "writable": true
+        },
+        {
+          "name": "mr_x",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "new_encrypted_position",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "transport",
+          "type": {
+            "defined": {
+              "name": "Transport"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "reveal_mr_x",
+      "docs": [
+        "Mr. X reveals their position (called every N rounds)",
+        "In production, this would verify the revealed position matches the encrypted handle via Inco"
+      ],
+      "discriminator": [
+        31,
+        192,
+        45,
+        145,
+        39,
+        63,
+        209,
+        20
+      ],
+      "accounts": [
+        {
+          "name": "game_state",
+          "writable": true
+        },
+        {
+          "name": "mr_x",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "revealed_position",
+          "type": "u8"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "GameState",
+      "discriminator": [
+        144,
+        94,
+        208,
+        172,
+        248,
+        99,
+        134,
+        120
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidNodePosition",
+      "msg": "Invalid node position (must be 1-199)"
+    },
+    {
+      "code": 6001,
+      "name": "NodeOccupied",
+      "msg": "Node already occupied by another detective"
+    },
+    {
+      "code": 6002,
+      "name": "NotAdjacent",
+      "msg": "Invalid move: nodes are not adjacent"
+    },
+    {
+      "code": 6003,
+      "name": "InvalidTransport",
+      "msg": "Invalid transport type for this edge"
+    },
+    {
+      "code": 6004,
+      "name": "NotYourTurn",
+      "msg": "Not your turn"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidGameStatus",
+      "msg": "Game is not in the correct status"
+    },
+    {
+      "code": 6006,
+      "name": "GameFull",
+      "msg": "Game is full"
+    },
+    {
+      "code": 6007,
+      "name": "OnlyMrX",
+      "msg": "Only Mr. X can perform this action"
+    },
+    {
+      "code": 6008,
+      "name": "OnlyDetective",
+      "msg": "Only detectives can perform this action"
+    },
+    {
+      "code": 6009,
+      "name": "InvalidDetectiveIndex",
+      "msg": "Invalid detective index"
+    },
+    {
+      "code": 6010,
+      "name": "RevealNotAllowed",
+      "msg": "Reveal not allowed at this round"
+    },
+    {
+      "code": 6011,
+      "name": "RevealMismatch",
+      "msg": "Revealed position does not match encrypted position"
+    },
+    {
+      "code": 6012,
+      "name": "NoCapture",
+      "msg": "Mr. X was not captured"
+    },
+    {
+      "code": 6013,
+      "name": "GameAlreadyStarted",
+      "msg": "Game has already started"
+    },
+    {
+      "code": 6014,
+      "name": "GameNotStarted",
+      "msg": "Game has not started yet"
+    },
+    {
+      "code": 6015,
+      "name": "InvalidEncryptedHandle",
+      "msg": "Invalid encrypted position handle"
+    }
+  ],
+  "types": [
+    {
+      "name": "GameState",
+      "docs": [
+        "GameState account storing all game information"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "game_id",
+            "type": "u64"
+          },
+          {
+            "name": "mr_x",
+            "type": "pubkey"
+          },
+          {
+            "name": "mr_x_position",
+            "docs": [
+              "Encrypted position handle (32 bytes from Inco Lightning)"
+            ],
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "detectives",
+            "type": {
+              "array": [
+                "pubkey",
+                3
+              ]
+            }
+          },
+          {
+            "name": "detective_positions",
+            "docs": [
+              "Public node IDs (1-199) for each detective"
+            ],
+            "type": {
+              "array": [
+                "u8",
+                3
+              ]
+            }
+          },
+          {
+            "name": "detective_count",
+            "type": "u8"
+          },
+          {
+            "name": "max_detectives",
+            "type": "u8"
+          },
+          {
+            "name": "current_turn",
+            "type": "u8"
+          },
+          {
+            "name": "round",
+            "type": "u8"
+          },
+          {
+            "name": "rounds_between_reveals",
+            "type": "u8"
+          },
+          {
+            "name": "last_revealed_position",
+            "type": "u8"
+          },
+          {
+            "name": "last_revealed_round",
+            "type": "u8"
+          },
+          {
+            "name": "max_rounds",
+            "type": "u8"
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "GameStatus"
+              }
+            }
+          },
+          {
+            "name": "mr_x_last_transport",
+            "type": {
+              "defined": {
+                "name": "Transport"
+              }
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GameStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "WaitingForPlayers"
+          },
+          {
+            "name": "Active"
+          },
+          {
+            "name": "MrXWins"
+          },
+          {
+            "name": "DetectivesWin"
+          },
+          {
+            "name": "Cancelled"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Transport",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "None"
+          },
+          {
+            "name": "Taxi"
+          },
+          {
+            "name": "Bus"
+          },
+          {
+            "name": "Underground"
+          },
+          {
+            "name": "Ferry"
+          }
+        ]
+      }
+    }
+  ]
+}

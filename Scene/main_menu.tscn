@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1t4rnpumc12m"]
+
+[ext_resource type="Script" uid="uid://db44vym4imhi3" path="res://Script/main_menu.gd" id="1_87ipw"]
+[ext_resource type="FontFile" uid="uid://edxslnppp2v4" path="res://Asset/Font/GrenzeGotisch-VariableFont_wght.ttf" id="1_ftydy"]
+[ext_resource type="Texture2D" uid="uid://0difb0y0d5gk" path="res://Asset/photo_2026-02-01_03-41-48.jpg" id="2_hii65"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_87ipw"]
+font = ExtResource("1_ftydy")
+font_size = 120
+font_color = Color(1, 0.53333336, 0, 1)
+outline_size = 5
+outline_color = Color(1, 0, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_87ipw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.17853142, 0.20057638, 0.13759074, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.6862745)
+position = Vector2(576.5, 322.99997)
+scale = Vector2(0.90234375, 0.7620164)
+texture = ExtResource("2_hii65")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -29.5
+offset_right = 4.0
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "SCOTLAND YARD"
+label_settings = SubResource("LabelSettings_87ipw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConnectWalletButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ftydy")
+theme_override_font_sizes/font_size = 40
+text = "CONNECT WALLET"

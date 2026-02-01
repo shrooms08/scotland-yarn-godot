@@ -1,0 +1,171 @@
+[gd_scene load_steps=7 format=3 uid="uid://hc8kl42g41uw"]
+
+[ext_resource type="FontFile" uid="uid://edxslnppp2v4" path="res://Asset/Font/GrenzeGotisch-VariableFont_wght.ttf" id="1_d31jc"]
+[ext_resource type="Script" uid="uid://csav5qv2jnppe" path="res://Script/lobby.gd" id="1_q1h5c"]
+[ext_resource type="Texture2D" uid="uid://0difb0y0d5gk" path="res://Asset/photo_2026-02-01_03-41-48.jpg" id="2_lvw4e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1h5c"]
+font = ExtResource("1_d31jc")
+font_size = 70
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.74600005)
+shadow_offset = Vector2(1, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fubd8"]
+font_size = 25
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.79)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lvw4e"]
+font = ExtResource("1_d31jc")
+font_size = 35
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.82900006)
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q1h5c")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.17853142, 0.20057638, 0.13759074, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.6862745)
+position = Vector2(576.5, 322.99997)
+scale = Vector2(0.90234375, 0.7620164)
+texture = ExtResource("2_lvw4e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Game Lobby"
+label_settings = SubResource("LabelSettings_q1h5c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaxDetectivesLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_d31jc")
+theme_override_font_sizes/font_size = 24
+text = "Number of detectives (1–3):"
+label_settings = SubResource("LabelSettings_fubd8")
+horizontal_alignment = 1
+
+[node name="MaxDetectivesOption" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_d31jc")
+theme_override_font_sizes/font_size = 22
+selected = 2
+item_count = 3
+popup/item_0/text = "1 detective"
+popup/item_0/id = 1
+popup/item_1/text = "2 detectives"
+popup/item_1/id = 2
+popup/item_2/text = "3 detectives"
+popup/item_2/id = 0
+
+[node name="CreateGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_d31jc")
+theme_override_font_sizes/font_size = 40
+text = "Create Game (Mr.X)"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "JOIN GAME"
+label_settings = SubResource("LabelSettings_lvw4e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GamePdaInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_d31jc")
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Paste Game PDA from creator"
+alignment = 1
+
+[node name="JoinGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_d31jc")
+theme_override_font_sizes/font_size = 40
+text = "Join as DETECTIVE"
+
+[node name="CreatePopup" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.1, 0.15, 0.92)
+
+[node name="VBox" type="VBoxContainer" parent="CreatePopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -120.0
+offset_right = 180.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="CreatePopup/VBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_d31jc")
+theme_override_font_sizes/font_size = 28
+text = "Game created! Share this PDA:"
+horizontal_alignment = 1
+
+[node name="PdaLabel" type="Label" parent="CreatePopup/VBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_d31jc")
+theme_override_font_sizes/font_size = 14
+text = "(PDA will appear here)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CopyButton" type="Button" parent="CreatePopup/VBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_d31jc")
+theme_override_font_sizes/font_size = 24
+text = "Copy PDA"
+
+[node name="ContinueButton" type="Button" parent="CreatePopup/VBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_d31jc")
+theme_override_font_sizes/font_size = 24
+text = "Continue to game"

@@ -1,0 +1,1351 @@
+[gd_scene load_steps=14 format=3 uid="uid://buk0rrxwb6x8l"]
+
+[ext_resource type="Script" uid="uid://cvm13m3jifkw4" path="res://Script/game_board.gd" id="1_5cmab"]
+[ext_resource type="FontFile" uid="uid://edxslnppp2v4" path="res://Asset/Font/GrenzeGotisch-VariableFont_wght.ttf" id="2_61k3y"]
+[ext_resource type="Texture2D" uid="uid://0difb0y0d5gk" path="res://Asset/photo_2026-02-01_03-41-48.jpg" id="2_b6wmf"]
+[ext_resource type="Texture2D" uid="uid://d3o0da2vkhxis" path="res://Asset/Scotland_Yard_schematic.png" id="2_mwnjc"]
+[ext_resource type="PackedScene" uid="uid://b42l0u5ud6u4w" path="res://Scene/board_node.tscn" id="3_mwnjc"]
+[ext_resource type="JSON" path="res://Program/scotland_yard_program.json" id="5_fiht1"]
+[ext_resource type="AudioStream" uid="uid://277045ac2njh" path="res://Asset/Sounds/background_music.wav" id="6_mg73j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5cmab"]
+font = ExtResource("2_61k3y")
+
+[sub_resource type="LabelSettings" id="LabelSettings_mwnjc"]
+font = ExtResource("2_61k3y")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fiht1"]
+font = ExtResource("2_61k3y")
+
+[sub_resource type="LabelSettings" id="LabelSettings_mg73j"]
+font = ExtResource("2_61k3y")
+
+[sub_resource type="LabelSettings" id="LabelSettings_b6wmf"]
+font = ExtResource("2_61k3y")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_inl46"]
+font = ExtResource("2_61k3y")
+font_size = 14
+
+[node name="GameBoard" type="Node2D"]
+script = ExtResource("1_5cmab")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.17853142, 0.20057638, 0.13759074, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.6862745)
+position = Vector2(576.5, 322.99997)
+scale = Vector2(0.90234375, 0.7620164)
+texture = ExtResource("2_b6wmf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(456, 323.99997)
+scale = Vector2(0.9, 0.7596717)
+texture = ExtResource("2_mwnjc")
+
+[node name="NodeContainer" type="Node2D" parent="."]
+position = Vector2(14, 14)
+
+[node name="BoardNode" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(118, 67)
+node_id = 1
+
+[node name="BoardNode2" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(299, 67)
+node_id = 2
+
+[node name="BoardNode3" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(370, 67)
+node_id = 3
+
+[node name="BoardNode4" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(443, 67)
+node_id = 4
+
+[node name="BoardNode5" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(658, 67)
+node_id = 5
+
+[node name="BoardNode6" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(730, 67)
+node_id = 6
+
+[node name="BoardNode7" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(802, 67)
+node_id = 7
+
+[node name="BoardNode8" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(82, 97)
+node_id = 8
+
+[node name="BoardNode9" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(154, 97)
+node_id = 9
+
+[node name="BoardNode10" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(334, 97)
+node_id = 10
+
+[node name="BoardNode11" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(370, 97)
+node_id = 11
+
+[node name="BoardNode12" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(406, 97)
+node_id = 12
+
+[node name="BoardNode13" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(478, 98)
+node_id = 13
+
+[node name="BoardNode14" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(550, 97)
+node_id = 14
+
+[node name="BoardNode15" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(586, 97)
+node_id = 15
+
+[node name="BoardNode16" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(694, 97)
+node_id = 16
+
+[node name="BoardNode17" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(802, 97)
+node_id = 17
+
+[node name="BoardNode18" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(46, 128)
+node_id = 18
+
+[node name="BoardNode19" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(118, 128)
+node_id = 19
+
+[node name="BoardNode20" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(226, 128)
+node_id = 20
+
+[node name="BoardNode21" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(298, 128)
+node_id = 21
+
+[node name="BoardNode22" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(370, 128)
+node_id = 22
+
+[node name="BoardNode23" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(442, 128)
+node_id = 23
+
+[node name="BoardNode24" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(514, 128)
+node_id = 24
+
+[node name="BoardNode25" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(550, 128)
+node_id = 25
+
+[node name="BoardNode26" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(586, 128)
+node_id = 26
+
+[node name="BoardNode27" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(622, 128)
+node_id = 27
+
+[node name="BoardNode28" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(658, 128)
+node_id = 28
+
+[node name="BoardNode29" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(730, 128)
+node_id = 29
+
+[node name="BoardNode30" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(838, 128)
+node_id = 30
+
+[node name="BoardNode31" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(82, 158)
+node_id = 31
+
+[node name="BoardNode32" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(154, 158)
+node_id = 32
+
+[node name="BoardNode33" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(262, 158)
+node_id = 33
+
+[node name="BoardNode34" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(334, 158)
+node_id = 34
+
+[node name="BoardNode35" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(370, 158)
+node_id = 35
+
+[node name="BoardNode36" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(442, 158)
+node_id = 36
+
+[node name="BoardNode37" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(478, 158)
+node_id = 37
+
+[node name="BoardNode38" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(514, 158)
+node_id = 38
+
+[node name="BoardNode39" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(586, 158)
+node_id = 39
+
+[node name="BoardNode40" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(622, 158)
+node_id = 40
+
+[node name="BoardNode41" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(658, 158)
+node_id = 41
+
+[node name="BoardNode42" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(802, 158)
+node_id = 42
+
+[node name="BoardNode43" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(46, 188)
+node_id = 43
+
+[node name="BoardNode44" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(118, 188)
+node_id = 44
+
+[node name="BoardNode45" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(190, 188)
+node_id = 45
+
+[node name="BoardNode46" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(262, 189)
+node_id = 46
+
+[node name="BoardNode47" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(298, 189)
+node_id = 47
+
+[node name="BoardNode48" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(334, 189)
+node_id = 48
+
+[node name="BoardNode49" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(478, 188)
+node_id = 49
+
+[node name="BoardNode50" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(514, 188)
+node_id = 50
+
+[node name="BoardNode51" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(550, 188)
+node_id = 51
+
+[node name="BoardNode52" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(586, 188)
+node_id = 52
+
+[node name="BoardNode53" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(622, 188)
+node_id = 53
+
+[node name="BoardNode54" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(658, 188)
+node_id = 54
+
+[node name="BoardNode55" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(730, 188)
+node_id = 55
+
+[node name="BoardNode56" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(838, 188)
+node_id = 56
+
+[node name="BoardNode57" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(82, 219)
+node_id = 57
+
+[node name="BoardNode58" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(154, 219)
+node_id = 58
+
+[node name="BoardNode59" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(190, 219)
+node_id = 59
+
+[node name="BoardNode60" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(226, 219)
+node_id = 60
+
+[node name="BoardNode61" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(262, 219)
+node_id = 61
+
+[node name="BoardNode62" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(298, 219)
+node_id = 62
+
+[node name="BoardNode63" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(334, 219)
+node_id = 63
+
+[node name="BoardNode64" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(370, 219)
+node_id = 64
+
+[node name="BoardNode65" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(442, 219)
+node_id = 65
+
+[node name="BoardNode66" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(478, 219)
+node_id = 66
+
+[node name="BoardNode67" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(550, 219)
+node_id = 67
+
+[node name="BoardNode68" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(586, 219)
+node_id = 68
+
+[node name="BoardNode69" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(622, 219)
+node_id = 69
+
+[node name="BoardNode70" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(658, 219)
+node_id = 70
+
+[node name="BoardNode71" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(730, 219)
+node_id = 71
+
+[node name="BoardNode72" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(802, 219)
+node_id = 72
+
+[node name="BoardNode73" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(82, 249)
+node_id = 73
+
+[node name="BoardNode74" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(118, 249)
+node_id = 74
+
+[node name="BoardNode75" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(154, 249)
+node_id = 75
+
+[node name="BoardNode76" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(190, 249)
+node_id = 76
+
+[node name="BoardNode77" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(226, 249)
+node_id = 77
+
+[node name="BoardNode78" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(262, 249)
+node_id = 78
+
+[node name="BoardNode79" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(298, 249)
+node_id = 79
+
+[node name="BoardNode80" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(334, 249)
+node_id = 80
+
+[node name="BoardNode81" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(406, 249)
+node_id = 81
+
+[node name="BoardNode82" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(442, 249)
+node_id = 82
+
+[node name="BoardNode83" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(514, 249)
+node_id = 83
+
+[node name="BoardNode84" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(550, 249)
+node_id = 84
+
+[node name="BoardNode85" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(586, 249)
+node_id = 85
+
+[node name="BoardNode86" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(622, 249)
+node_id = 86
+
+[node name="BoardNode87" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(658, 249)
+node_id = 87
+
+[node name="BoardNode88" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(694, 249)
+node_id = 88
+
+[node name="BoardNode89" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(730, 249)
+node_id = 89
+
+[node name="BoardNode90" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(766, 249)
+node_id = 90
+
+[node name="BoardNode91" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(838, 249)
+node_id = 91
+
+[node name="BoardNode92" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(46, 279)
+node_id = 92
+
+[node name="BoardNode93" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(82, 279)
+node_id = 93
+
+[node name="BoardNode94" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(118, 279)
+node_id = 94
+
+[node name="BoardNode95" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(154, 279)
+node_id = 95
+
+[node name="BoardNode96" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(226, 279)
+node_id = 96
+
+[node name="BoardNode97" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(262, 279)
+node_id = 97
+
+[node name="BoardNode98" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(298, 279)
+node_id = 98
+
+[node name="BoardNode99" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(334, 279)
+node_id = 99
+
+[node name="BoardNode100" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(370, 279)
+node_id = 100
+
+[node name="BoardNode101" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(478, 280)
+node_id = 101
+
+[node name="BoardNode102" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(550, 280)
+node_id = 102
+
+[node name="BoardNode103" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(586, 280)
+node_id = 103
+
+[node name="BoardNode104" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(622, 280)
+node_id = 104
+
+[node name="BoardNode105" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(730, 280)
+node_id = 105
+
+[node name="BoardNode106" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(802, 280)
+node_id = 106
+
+[node name="BoardNode107" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(838, 280)
+node_id = 107
+
+[node name="BoardNode109" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(262, 310)
+node_id = 109
+
+[node name="BoardNode110" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(298, 310)
+node_id = 110
+
+[node name="BoardNode111" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(334, 310)
+node_id = 111
+
+[node name="BoardNode112" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(370, 310)
+node_id = 112
+
+[node name="BoardNode113" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(406, 310)
+node_id = 113
+
+[node name="BoardNode114" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(478, 310)
+node_id = 114
+
+[node name="BoardNode115" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(550, 310)
+node_id = 115
+
+[node name="BoardNode116" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(622, 310)
+node_id = 116
+
+[node name="BoardNode117" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(694, 310)
+node_id = 117
+
+[node name="BoardNode118" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(730, 310)
+node_id = 118
+
+[node name="BoardNode119" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(838, 310)
+node_id = 119
+
+[node name="BoardNode120" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(46, 340)
+node_id = 120
+
+[node name="BoardNode121" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(82, 340)
+node_id = 121
+
+[node name="BoardNode122" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(154, 340)
+node_id = 122
+
+[node name="BoardNode123" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(190, 340)
+node_id = 123
+
+[node name="BoardNode124" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(262, 340)
+node_id = 124
+
+[node name="BoardNode125" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(370, 340)
+node_id = 125
+
+[node name="BoardNode126" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(514, 340)
+node_id = 126
+
+[node name="BoardNode127" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(586, 340)
+node_id = 127
+
+[node name="BoardNode128" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(622, 340)
+node_id = 128
+
+[node name="BoardNode129" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(694, 340)
+node_id = 129
+
+[node name="BoardNode130" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(334, 371)
+node_id = 130
+
+[node name="BoardNode131" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(406, 371)
+node_id = 131
+
+[node name="BoardNode132" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(478, 371)
+node_id = 132
+
+[node name="BoardNode133" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(550, 371)
+node_id = 133
+
+[node name="BoardNode134" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(586, 371)
+node_id = 134
+
+[node name="BoardNode135" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(730, 371)
+node_id = 135
+
+[node name="BoardNode136" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(838, 371)
+node_id = 136
+
+[node name="BoardNode137" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(190, 401)
+node_id = 137
+
+[node name="BoardNode138" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(298, 401)
+node_id = 138
+
+[node name="BoardNode139" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(334, 401)
+node_id = 139
+
+[node name="BoardNode140" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(478, 401)
+node_id = 140
+
+[node name="BoardNode141" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(550, 401)
+node_id = 141
+
+[node name="BoardNode142" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(622, 401)
+node_id = 142
+
+[node name="BoardNode143" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(694, 401)
+node_id = 143
+
+[node name="BoardNode144" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(46, 432)
+node_id = 144
+
+[node name="BoardNode145" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(82, 432)
+node_id = 145
+
+[node name="BoardNode146" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(118, 432)
+node_id = 146
+
+[node name="BoardNode147" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(154, 432)
+node_id = 147
+
+[node name="BoardNode148" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(190, 432)
+node_id = 148
+
+[node name="BoardNode149" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(226, 432)
+node_id = 149
+
+[node name="BoardNode150" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(262, 432)
+node_id = 150
+
+[node name="BoardNode151" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(298, 431)
+node_id = 151
+
+[node name="BoardNode152" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(334, 431)
+node_id = 152
+
+[node name="BoardNode153" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(370, 432)
+node_id = 153
+
+[node name="BoardNode154" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(406, 432)
+node_id = 154
+
+[node name="BoardNode155" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(442, 432)
+node_id = 155
+
+[node name="BoardNode156" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(478, 432)
+node_id = 156
+
+[node name="BoardNode157" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(550, 432)
+node_id = 157
+
+[node name="BoardNode158" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(586, 432)
+node_id = 158
+
+[node name="BoardNode159" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(658, 432)
+node_id = 159
+
+[node name="BoardNode160" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(730, 432)
+node_id = 160
+
+[node name="BoardNode161" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(766, 432)
+node_id = 161
+
+[node name="BoardNode162" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(838, 432)
+node_id = 162
+
+[node name="BoardNode163" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(118, 462)
+node_id = 163
+
+[node name="BoardNode164" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(154, 462)
+node_id = 164
+
+[node name="BoardNode165" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(226, 462)
+node_id = 165
+
+[node name="BoardNode166" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(370, 462)
+node_id = 166
+
+[node name="BoardNode167" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(406, 462)
+node_id = 167
+
+[node name="BoardNode168" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(442, 462)
+node_id = 168
+
+[node name="BoardNode169" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(478, 462)
+node_id = 169
+
+[node name="BoardNode170" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(550, 462)
+node_id = 170
+
+[node name="BoardNode171" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(586, 462)
+node_id = 171
+
+[node name="BoardNode172" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(658, 462)
+node_id = 172
+
+[node name="BoardNode173" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(730, 462)
+node_id = 173
+
+[node name="BoardNode174" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(802, 462)
+node_id = 174
+
+[node name="BoardNode175" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(838, 462)
+node_id = 175
+
+[node name="BoardNode176" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(46, 492)
+node_id = 176
+
+[node name="BoardNode177" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(82, 492)
+node_id = 177
+
+[node name="BoardNode178" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(154, 492)
+node_id = 178
+
+[node name="BoardNode179" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(226, 492)
+node_id = 179
+
+[node name="BoardNode180" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(262, 492)
+node_id = 180
+
+[node name="BoardNode181" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(334, 492)
+node_id = 181
+
+[node name="BoardNode182" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(370, 492)
+node_id = 182
+
+[node name="BoardNode183" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(406, 492)
+node_id = 183
+
+[node name="BoardNode184" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(442, 492)
+node_id = 184
+
+[node name="BoardNode185" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(550, 492)
+node_id = 185
+
+[node name="BoardNode186" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(586, 492)
+node_id = 186
+
+[node name="BoardNode187" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(622, 492)
+node_id = 187
+
+[node name="BoardNode188" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(694, 492)
+node_id = 188
+
+[node name="BoardNode189" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(82, 523)
+node_id = 189
+
+[node name="BoardNode190" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(118, 523)
+node_id = 190
+
+[node name="BoardNode191" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(154, 523)
+node_id = 191
+
+[node name="BoardNode192" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(190, 523)
+node_id = 192
+
+[node name="BoardNode193" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(298, 523)
+node_id = 193
+
+[node name="BoardNode194" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(334, 523)
+node_id = 194
+
+[node name="BoardNode195" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(370, 523)
+node_id = 195
+
+[node name="BoardNode196" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(406, 523)
+node_id = 196
+
+[node name="BoardNode197" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(442, 523)
+node_id = 197
+
+[node name="BoardNode198" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(586, 523)
+node_id = 198
+
+[node name="BoardNode199" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(694, 523)
+node_id = 199
+
+[node name="BoardNode200" parent="NodeContainer" instance=ExtResource("3_mwnjc")]
+position = Vector2(730, 523)
+node_id = 200
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopPanel" type="Panel" parent="CanvasLayer/UI"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="HBoxContainer" parent="CanvasLayer/UI/TopPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -20.0
+offset_right = 120.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="RoundLabel" type="Label" parent="CanvasLayer/UI/TopPanel/TopBar"]
+layout_mode = 2
+text = "Round: 0"
+label_settings = SubResource("LabelSettings_5cmab")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TurnLabel" type="Label" parent="CanvasLayer/UI/TopPanel/TopBar"]
+layout_mode = 2
+text = "Turn: Mr.X"
+label_settings = SubResource("LabelSettings_mwnjc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="CanvasLayer/UI/TopPanel/TopBar"]
+layout_mode = 2
+text = "Waiting"
+label_settings = SubResource("LabelSettings_fiht1")
+
+[node name="BottomPanel" type="Panel" parent="CanvasLayer/UI"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayerInfo" type="VBoxContainer" parent="CanvasLayer/UI/BottomPanel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MrXTransport" type="Label" parent="CanvasLayer/UI/BottomPanel/PlayerInfo"]
+layout_mode = 2
+text = "Mr.X used: ---"
+label_settings = SubResource("LabelSettings_mg73j")
+
+[node name="TicketButtons" type="HBoxContainer" parent="CanvasLayer/UI/BottomPanel/PlayerInfo"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 40
+
+[node name="TaxiButton" type="Button" parent="CanvasLayer/UI/BottomPanel/PlayerInfo/TicketButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_61k3y")
+theme_override_font_sizes/font_size = 25
+text = "Taxi"
+
+[node name="BusButton" type="Button" parent="CanvasLayer/UI/BottomPanel/PlayerInfo/TicketButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_61k3y")
+theme_override_font_sizes/font_size = 25
+text = "Bus"
+
+[node name="UndergroundButton" type="Button" parent="CanvasLayer/UI/BottomPanel/PlayerInfo/TicketButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_61k3y")
+theme_override_font_sizes/font_size = 25
+text = "Underground"
+
+[node name="BlackButton" type="Button" parent="CanvasLayer/UI/BottomPanel/PlayerInfo/TicketButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_61k3y")
+theme_override_font_sizes/font_size = 25
+text = "Black"
+
+[node name="DoubleMoveButton" type="Button" parent="CanvasLayer/UI/BottomPanel/PlayerInfo/TicketButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_61k3y")
+theme_override_font_sizes/font_size = 25
+text = "2x Move"
+
+[node name="HistoryPanel" type="PanelContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = -246.0
+offset_right = -27.0
+offset_bottom = 224.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HistoryContainer" type="VBoxContainer" parent="CanvasLayer/UI/HistoryPanel"]
+layout_mode = 2
+
+[node name="HistoryTitle" type="Label" parent="CanvasLayer/UI/HistoryPanel/HistoryContainer"]
+layout_mode = 2
+text = "History Log:"
+label_settings = SubResource("LabelSettings_b6wmf")
+
+[node name="HistoryScroll" type="ScrollContainer" parent="CanvasLayer/UI/HistoryPanel/HistoryContainer"]
+custom_minimum_size = Vector2(0, 450)
+layout_mode = 2
+
+[node name="HistoryLog" type="Label" parent="CanvasLayer/UI/HistoryPanel/HistoryContainer/HistoryScroll"]
+custom_minimum_size = Vector2(205, 450)
+layout_mode = 2
+text = "
+"
+label_settings = SubResource("LabelSettings_inl46")
+autowrap_mode = 2
+
+[node name="AnchorProgram" type="AnchorProgram" parent="."]
+url_override = "https://api.devnet.solana.com"
+pid = "CDCd6YhgMBQtKvaUvD2HB9hAGKxJeWMr9AvQmsjYsKok"
+json_file = ExtResource("5_fiht1")
+idl = {
+"accounts": [{
+"discriminator": [144.0, 94.0, 208.0, 172.0, 248.0, 99.0, 134.0, 120.0],
+"name": "GameState"
+}],
+"address": "CDCd6YhgMBQtKvaUvD2HB9hAGKxJeWMr9AvQmsjYsKok",
+"errors": [{
+"code": 6000.0,
+"msg": "Invalid node position (must be 1-199)",
+"name": "InvalidNodePosition"
+}, {
+"code": 6001.0,
+"msg": "Node already occupied by another detective",
+"name": "NodeOccupied"
+}, {
+"code": 6002.0,
+"msg": "Invalid move: nodes are not adjacent",
+"name": "NotAdjacent"
+}, {
+"code": 6003.0,
+"msg": "Invalid transport type for this edge",
+"name": "InvalidTransport"
+}, {
+"code": 6004.0,
+"msg": "Not your turn",
+"name": "NotYourTurn"
+}, {
+"code": 6005.0,
+"msg": "Game is not in the correct status",
+"name": "InvalidGameStatus"
+}, {
+"code": 6006.0,
+"msg": "Game is full",
+"name": "GameFull"
+}, {
+"code": 6007.0,
+"msg": "Only Mr. X can perform this action",
+"name": "OnlyMrX"
+}, {
+"code": 6008.0,
+"msg": "Only detectives can perform this action",
+"name": "OnlyDetective"
+}, {
+"code": 6009.0,
+"msg": "Invalid detective index",
+"name": "InvalidDetectiveIndex"
+}, {
+"code": 6010.0,
+"msg": "Reveal not allowed at this round",
+"name": "RevealNotAllowed"
+}, {
+"code": 6011.0,
+"msg": "Revealed position does not match encrypted position",
+"name": "RevealMismatch"
+}, {
+"code": 6012.0,
+"msg": "Mr. X was not captured",
+"name": "NoCapture"
+}, {
+"code": 6013.0,
+"msg": "Game has already started",
+"name": "GameAlreadyStarted"
+}, {
+"code": 6014.0,
+"msg": "Game has not started yet",
+"name": "GameNotStarted"
+}, {
+"code": 6015.0,
+"msg": "Invalid encrypted position handle",
+"name": "InvalidEncryptedHandle"
+}],
+"instructions": [{
+"accounts": [{
+"name": "game_state",
+"writable": true
+}, {
+"name": "mr_x",
+"signer": true
+}],
+"args": [],
+"discriminator": [121.0, 194.0, 154.0, 118.0, 103.0, 235.0, 149.0, 52.0],
+"docs": ["Cancel the game (only before it starts)"],
+"name": "cancel_game"
+}, {
+"accounts": [{
+"name": "game_state",
+"writable": true
+}, {
+"name": "detective",
+"signer": true
+}],
+"args": [{
+"name": "detective_index",
+"type": "u8"
+}, {
+"name": "claimed_mr_x_position",
+"type": "u8"
+}],
+"discriminator": [145.0, 99.0, 177.0, 220.0, 227.0, 174.0, 164.0, 65.0],
+"docs": ["Check if a detective captured Mr. X", "Uses Inco Lightning to compare encrypted positions"],
+"name": "check_capture"
+}, {
+"accounts": [{
+"name": "game_state",
+"pda": {
+"seeds": [{
+"kind": "const",
+"value": [103.0, 97.0, 109.0, 101.0]
+}, {
+"kind": "account",
+"path": "mr_x"
+}, {
+"kind": "arg",
+"path": "game_id"
+}]
+},
+"writable": true
+}, {
+"name": "mr_x",
+"signer": true,
+"writable": true
+}, {
+"address": "11111111111111111111111111111111",
+"name": "system_program"
+}],
+"args": [{
+"name": "game_id",
+"type": "u64"
+}, {
+"name": "encrypted_position",
+"type": {
+"array": ["u8", 32.0]
+}
+}, {
+"name": "max_detectives",
+"type": "u8"
+}, {
+"name": "rounds_between_reveals",
+"type": "u8"
+}, {
+"name": "max_rounds",
+"type": "u8"
+}],
+"discriminator": [124.0, 69.0, 75.0, 66.0, 184.0, 220.0, 72.0, 206.0],
+"docs": ["Create a new game as Mr. X", "Mr. X provides their encrypted starting position"],
+"name": "create_game"
+}, {
+"accounts": [{
+"name": "game_state",
+"writable": true
+}, {
+"name": "detective",
+"signer": true
+}],
+"args": [{
+"name": "starting_position",
+"type": "u8"
+}],
+"discriminator": [107.0, 112.0, 18.0, 38.0, 56.0, 173.0, 60.0, 128.0],
+"docs": ["Detective joins the game with a starting position"],
+"name": "join_game"
+}, {
+"accounts": [{
+"name": "game_state",
+"writable": true
+}, {
+"name": "detective",
+"signer": true
+}],
+"args": [{
+"name": "detective_index",
+"type": "u8"
+}, {
+"name": "new_position",
+"type": "u8"
+}, {
+"name": "transport",
+"type": {
+"defined": {
+"name": "Transport"
+}
+}
+}],
+"discriminator": [52.0, 194.0, 142.0, 126.0, 100.0, 198.0, 75.0, 200.0],
+"docs": ["Detective moves to a new position (validated against graph)"],
+"name": "move_detective"
+}, {
+"accounts": [{
+"name": "game_state",
+"writable": true
+}, {
+"name": "mr_x",
+"signer": true
+}],
+"args": [{
+"name": "new_encrypted_position",
+"type": {
+"array": ["u8", 32.0]
+}
+}, {
+"name": "transport",
+"type": {
+"defined": {
+"name": "Transport"
+}
+}
+}],
+"discriminator": [139.0, 27.0, 65.0, 200.0, 193.0, 231.0, 30.0, 11.0],
+"docs": ["Mr. X moves to a new encrypted position"],
+"name": "move_mr_x"
+}, {
+"accounts": [{
+"name": "game_state",
+"writable": true
+}, {
+"name": "mr_x",
+"signer": true
+}],
+"args": [{
+"name": "revealed_position",
+"type": "u8"
+}],
+"discriminator": [31.0, 192.0, 45.0, 145.0, 39.0, 63.0, 209.0, 20.0],
+"docs": ["Mr. X reveals their position (called every N rounds)", "In production, this would verify the revealed position matches the encrypted handle via Inco"],
+"name": "reveal_mr_x"
+}],
+"metadata": {
+"description": "Created with Anchor",
+"name": "scotland_yard_program",
+"spec": "0.1.0",
+"version": "0.1.0"
+},
+"types": [{
+"docs": ["GameState account storing all game information"],
+"name": "GameState",
+"type": {
+"fields": [{
+"name": "game_id",
+"type": "u64"
+}, {
+"name": "mr_x",
+"type": "pubkey"
+}, {
+"docs": ["Encrypted position handle (32 bytes from Inco Lightning)"],
+"name": "mr_x_position",
+"type": {
+"array": ["u8", 32.0]
+}
+}, {
+"name": "detectives",
+"type": {
+"array": ["pubkey", 3.0]
+}
+}, {
+"docs": ["Public node IDs (1-199) for each detective"],
+"name": "detective_positions",
+"type": {
+"array": ["u8", 3.0]
+}
+}, {
+"name": "detective_count",
+"type": "u8"
+}, {
+"name": "max_detectives",
+"type": "u8"
+}, {
+"name": "current_turn",
+"type": "u8"
+}, {
+"name": "round",
+"type": "u8"
+}, {
+"name": "rounds_between_reveals",
+"type": "u8"
+}, {
+"name": "last_revealed_position",
+"type": "u8"
+}, {
+"name": "last_revealed_round",
+"type": "u8"
+}, {
+"name": "max_rounds",
+"type": "u8"
+}, {
+"name": "status",
+"type": {
+"defined": {
+"name": "GameStatus"
+}
+}
+}, {
+"name": "mr_x_last_transport",
+"type": {
+"defined": {
+"name": "Transport"
+}
+}
+}, {
+"name": "bump",
+"type": "u8"
+}],
+"kind": "struct"
+}
+}, {
+"name": "GameStatus",
+"type": {
+"kind": "enum",
+"variants": [{
+"name": "WaitingForPlayers"
+}, {
+"name": "Active"
+}, {
+"name": "MrXWins"
+}, {
+"name": "DetectivesWin"
+}, {
+"name": "Cancelled"
+}]
+}
+}, {
+"name": "Transport",
+"type": {
+"kind": "enum",
+"variants": [{
+"name": "None"
+}, {
+"name": "Taxi"
+}, {
+"name": "Bus"
+}, {
+"name": "Underground"
+}, {
+"name": "Ferry"
+}]
+}
+}]
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mg73j")
+volume_db = -25.0
+pitch_scale = 1.5
+autoplay = true

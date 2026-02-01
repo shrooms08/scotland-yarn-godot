@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://b42l0u5ud6u4w"]
+
+[ext_resource type="Script" uid="uid://b2w2iva84oy82" path="res://Script/board_node.gd" id="1_be0lh"]
+
+[node name="BoardNode" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_be0lh")
+
+[node name="ClickButton" type="Button" parent="."]
+custom_minimum_size = Vector2(30, 30)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2

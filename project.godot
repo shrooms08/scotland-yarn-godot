@@ -1,0 +1,30 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="scotland-yard-godot"
+run/main_scene="uid://b1t4rnpumc12m"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+
+[autoload]
+
+GameManager="*res://Script/manager/game_manager.gd"
+GlobalSolanaClient="*res://Script/manager/solana_client.gd"
+AudioManager="*res://Script/manager/audio_manager.gd"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+
+[solana_sdk]
+
+anchor/custom_anchor_programs=PackedStringArray("res://Program/scotland_yard_program.json", "res://Program/scotland_yard_program.json", "res://Program/scotland_yard_program.json", "res://Program/scotland_yard_program.json", "res://Program/scotland_yard_program.json", "res://Program/scotland_yard_program.json", "res://Program/scotland_yard_program.json")
